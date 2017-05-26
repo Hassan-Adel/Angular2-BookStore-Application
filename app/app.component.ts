@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 	pageTitle:string = "Book Store";
+	searchBox:string = '';
 
 	showBook():void{}
 }
