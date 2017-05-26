@@ -14,12 +14,21 @@ var BooksListComponent = (function () {
         this.showImage = true;
         this.booksInStock = 20;
         //interpuloation
-        this.bookAuthor = "Tom Jones";
-        this.bookTitle = "War and Peace II";
-        this.bookPrice = "$29.95";
-        this.bookDescription = "Book of historical fiction.";
-        this.bookReviews = 15;
-        this.bookImageUrl = "app/assets/images/656.jpg";
+        this.books = [{
+                bookAuthor: "Tom Jones",
+                bookTitle: "War and Peace 2",
+                bookPrice: "$29.95",
+                bookDescription: "Book of historical fiction",
+                bookReviews: 15,
+                bookImageUrl: "app/assets/images/656.jpg"
+            }, {
+                bookAuthor: "Tom Jones",
+                bookTitle: "War and Peace 2",
+                bookPrice: "$29.95",
+                bookDescription: "Book of historical fiction",
+                bookReviews: 15,
+                bookImageUrl: "app/assets/images/656.jpg"
+            }];
     }
     //functions
     BooksListComponent.prototype.toggleImage = function () {
