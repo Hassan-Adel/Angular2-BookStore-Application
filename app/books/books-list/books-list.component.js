@@ -12,6 +12,7 @@ var BooksListComponent = (function () {
         //property binding
         this.imageWidth = 100;
         this.showImage = true;
+        this.booksInStock = 20;
         //interpuloation
         this.bookAuthor = "Tom Jones";
         this.bookTitle = "War and Peace II";

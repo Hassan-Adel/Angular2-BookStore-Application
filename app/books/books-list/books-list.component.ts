@@ -10,6 +10,7 @@ export class BooksListComponent {
 	//property binding
 	imageWidth: number = 100;
 	showImage: boolean = true;
+	booksInStock: number = 20;
 	//interpuloation
 	bookAuthor: string = "Tom Jones";
 	bookTitle: string = "War and Peace II";
