@@ -11,6 +11,7 @@ var BooksListComponent = (function () {
     function BooksListComponent() {
         //property binding
         this.imageWidth = 100;
+        this.showImage = true;
         //interpuloation
         this.bookAuthor = "Tom Jones";
         this.bookTitle = "War and Peace II";
@@ -19,6 +20,10 @@ var BooksListComponent = (function () {
         this.bookReviews = 15;
         this.bookImageUrl = "app/assets/images/656.jpg";
     }
+    //functions
+    BooksListComponent.prototype.toggleImage = function () {
+        this.showImage = !this.showImage;
+    };
     return BooksListComponent;
 }());
 BooksListComponent = __decorate([

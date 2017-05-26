@@ -4,11 +4,13 @@
 
         <div class="col-md-4">
             <div class="thumbnail">
-              <img [src]="bookImageUrl" [style.width.px]="imageWidth">
+              <img [src]="bookImageUrl" [style.width.px]="imageWidth" *ngIf='showImage'>
               <div class="caption">
                 <h4 class="pull-right">
                   {{bookPrice}}
                 </h4>
+              <button class="btn btn-primary btn-xs pull-right" (click)='toggleImage()' > {{showImage ? 'Hide Image' : 'Show Imahe'}} </button>
+              <!-- Event Binding -->
                 <h4><a href="product.html">{{bookTitle}}</a></h4>
                 <p><b>Author: </b>{{bookAuthor}}</p>
                     <span class="glyphicon glyphicon-star"></span>
