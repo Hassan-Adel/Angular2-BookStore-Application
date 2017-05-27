@@ -11,6 +11,7 @@
                   {{book.bookPrice | currency:'EUR':true}}
                 </h4>
               <button class="btn btn-primary btn-xs pull-right" (click)='toggleImage()' > {{showImage ? 'Hide Image' : 'Show Image'}} </button>
+              <button class="btn btn-warning btn-xs pull-right" (click)='changeMethod()' > Click! </button>
               <!-- Event Binding -->
                 <h4><a href="product.html">{{book.bookTitle}}</a></h4>
                 <p><b>Author: </b>{{book.bookAuthor}}</p>
