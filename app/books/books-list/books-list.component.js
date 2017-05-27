@@ -22,7 +22,8 @@ var BooksListComponent = (function () {
                 publishedOn: new Date('02/11/1921'),
                 inStock: "yes",
                 bookReviews: 15,
-                bookImageUrl: "app/assets/images/656.jpg"
+                bookImageUrl: "app/assets/images/656.jpg",
+                hardcover: false
             }, {
                 bookAuthor: "Tom Jones",
                 bookTitle: "War and Peace II",
