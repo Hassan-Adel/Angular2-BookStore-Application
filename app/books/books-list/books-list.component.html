@@ -8,12 +8,14 @@
               <div [ngClass]="{'redClass':showImage,'yellowClass':!showImage}">ngClass Test</div>
               <div class="caption">
                 <h4 class="pull-right">
-                  {{book.bookPrice}}
+                  {{book.bookPrice | currency:'USD':true}}
                 </h4>
               <button class="btn btn-primary btn-xs pull-right" (click)='toggleImage()' > {{showImage ? 'Hide Image' : 'Show Image'}} </button>
               <!-- Event Binding -->
                 <h4><a href="product.html">{{book.bookTitle}}</a></h4>
                 <p><b>Author: </b>{{book.bookAuthor}}</p>
+                <p><b>Published On: </b>{{book.publishedOn | date:'longDate'}}</p>
+                <p><b>in Stock : </b>{{book.inStock | uppercase}}</p>
                     <span class="glyphicon glyphicon-star"></span>
                     <span class="glyphicon glyphicon-star"></span>
                     <span class="glyphicon glyphicon-star"></span>
