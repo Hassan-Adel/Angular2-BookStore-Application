@@ -9,11 +9,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var BooksListComponent = (function () {
     function BooksListComponent() {
-        //property binding
-        this.animals = ['lion', 'rabbit'];
         this.imageWidth = 100;
         this.showImage = true;
         this.booksInStock = 20;
+        this.showMessage = "Test";
         //interpuloation
         this.books = [{
                 bookAuthor: "Tom Jones",
@@ -35,22 +34,12 @@ var BooksListComponent = (function () {
                 bookImageUrl: "app/assets/images/656.jpg"
             }];
     }
-    BooksListComponent.prototype.ngOnInit = function () {
-        console.log('Init', this.booksInStock);
-    };
-    //used in two main instances :
-    //1-when we are comunicating between a parent and child component
-    //2-when we have data that's updated over the wire(web socket, observable)
-    BooksListComponent.prototype.ngOnChanges = function () {
-        console.log('new change detected');
-    };
-    BooksListComponent.prototype.changeMethod = function () {
-        this.animals = ['dag', 'cat'];
-        console.log('change method happened');
-    };
     //functions
     BooksListComponent.prototype.toggleImage = function () {
         this.showImage = !this.showImage;
+    };
+    BooksListComponent.prototype.onNotifyClicked = function (message) {
+        this.showMessage = message;
     };
     return BooksListComponent;
 }());

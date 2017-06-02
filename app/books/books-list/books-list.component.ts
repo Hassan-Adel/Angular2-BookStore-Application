@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component } from '@angular/core';
 //import { IBook } from'../book';
 
 
@@ -20,27 +20,12 @@ interface IBook{
 	templateUrl: 'books-list.component.html'
 })
 
-export class BooksListComponent implements OnInit, OnChanges {
+export class BooksListComponent{
 
-	ngOnInit(){
-		console.log('Init', this.booksInStock);
-	}
-	//used in two main instances :
-	//1-when we are comunicating between a parent and child component
-	//2-when we have data that's updated over the wire(web socket, observable)
-	ngOnChanges(){
-		console.log('new change detected');
-	}
-
-	changeMethod(): void {
-		this.animals = ['dag','cat'];
-		console.log('change method happened');
-	}
-	//property binding
-	animals: string[] = ['lion','rabbit'];
 	imageWidth: number = 100;
 	showImage: boolean = true;
 	booksInStock: number = 20;
+	showMessage : string = "Test";
 	//interpuloation
   books: IBook[] = [{
     bookAuthor: "Tom Jones",
@@ -64,5 +49,9 @@ export class BooksListComponent implements OnInit, OnChanges {
 	//functions
 	toggleImage():void{
 		this.showImage = !this.showImage;
+	}
+
+	onNotifyClicked(message: string): void{
+			this.showMessage = message;
 	}
 }
