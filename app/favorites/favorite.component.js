@@ -5,22 +5,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var TruncatePipe = (function () {
-    function TruncatePipe() {
+var FavoriteComponent = (function () {
+    function FavoriteComponent() {
     }
-    //limit represents the maximium number of characters to be displayed n the view
-    TruncatePipe.prototype.transform = function (input, limit) {
-        if (input)
-            return (input.length > limit) ? input.substr(0, limit) + '...' : input;
-    };
-    return TruncatePipe;
+    return FavoriteComponent;
 }());
-TruncatePipe = __decorate([
-    core_1.Pipe({
-        name: 'limitChar'
+__decorate([
+    core_1.Input(),
+    __metadata("design:type", Number)
+], FavoriteComponent.prototype, "reviews", void 0);
+FavoriteComponent = __decorate([
+    core_1.Component({
+        moduleId: module.id,
+        selector: 'bs-favorite',
+        templateUrl: 'favorite.component.html'
     })
-], TruncatePipe);
-exports.TruncatePipe = TruncatePipe;
-//# sourceMappingURL=truncate.pipe.js.map
+], FavoriteComponent);
+exports.FavoriteComponent = FavoriteComponent;
+//# sourceMappingURL=favorite.component.js.map
