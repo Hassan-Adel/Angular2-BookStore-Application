@@ -6,9 +6,11 @@ import { BooksListComponent }   from './books/books-list/books-list.component';
 import { FavoriteComponent }   from './favorites/favorite.component';
 import { HighlightDirective }   from './shared/highlight.directive';
 import { TruncatePipe }   from './shared/pipes/truncate.pipe';
+import { BookService }   from './books/book.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule ],
+  providers:    [BookService ],
   declarations: [ AppComponent, BooksListComponent, FavoriteComponent, HighlightDirective, TruncatePipe ],
   bootstrap:    [ AppComponent ]
 })

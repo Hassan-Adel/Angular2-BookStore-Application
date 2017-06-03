@@ -1,18 +1,6 @@
 import { Component } from '@angular/core';
-//import { IBook } from'../book';
-
-
-interface IBook{
-	bookAuthor: string;
-    bookTitle: string;
-    bookPrice: number;
-    bookDescription: string;
-    publishedOn : Date;
-    inStock?:string; //Can exist or not
-    bookReviews: number;
-    bookImageUrl: string;
-    hardcover?:boolean; //Can exist or not
-}
+import { IBook } from'../book';
+import { BookService } from'../book.service';
 
 @Component({
 	moduleId: module.id,
@@ -22,11 +10,18 @@ interface IBook{
 
 export class BooksListComponent{
 
+	books:IBook[];
 	imageWidth: number = 100;
 	showImage: boolean = true;
 	booksInStock: number = 20;
 	favoriteMessage : string = "";
+
+	constructor(private _bookService: BookService){
+		this.books = _bookService.getBooks();
+	}
+
 	//interpuloation
+	/*
   books: IBook[] = [{
     bookAuthor: "Tom Jones",
     bookTitle: "War and Peace 2",
@@ -45,7 +40,7 @@ export class BooksListComponent{
     publishedOn : new Date('02/11/2001'),
     bookReviews: 15,
     bookImageUrl: "app/assets/images/656.jpg"
-  }]
+  }] */
 	//functions
 	toggleImage():void{
 		this.showImage = !this.showImage;
