@@ -10,18 +10,22 @@ import { BookService }   from './books/book.service';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
+
+var routes = [
+         { path: 'books', component: BooksListComponent },
+         { path: '', redirectTo: 'books', pathMatch: 'full' },//anytime user navigates to root take them to books, use pathMach whenever using redirecting
+         { path: '**', redirectTo: 'books', pathMatch: 'full' }// '**' (wild card) when a user navigates to route that isn't defined , ie: 404
+                         ];
+
 @NgModule({
     imports:      [ BrowserModule,
                        FormsModule,
                        HttpModule,
-                       RouterModule.forRoot([
-         { path: 'books', component: BooksListComponent },
-         { path: '', redirectTo: 'books', pathMatch: 'full' },//anytime user navigates to root take them to books, use pathMach whenever using redirecting
-         { path: '**', redirectTo: 'books', pathMatch: 'full' }// '**' (wild card) when a user navigates to route that isn't defined , ie: 404
-                         ]) ],
+                       RouterModule.forRoot(routes) ],
   providers:    [BookService ],
   declarations: [ AppComponent, BooksListComponent, FavoriteComponent, HighlightDirective, TruncatePipe ],
   bootstrap:    [ AppComponent ]
 })
+
 
 export class AppModule { }
