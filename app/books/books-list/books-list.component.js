@@ -18,30 +18,17 @@ var BooksListComponent = (function () {
         this.showImage = true;
         this.booksInStock = 20;
         this.favoriteMessage = "";
-        this.books = _bookService.getBooks();
     }
-    //interpuloation
-    /*
-  books: IBook[] = [{
-    bookAuthor: "Tom Jones",
-    bookTitle: "War and Peace 2",
-    bookPrice: 29.95,
-    bookDescription: "Book of historical fiction",
-    publishedOn : new Date('02/11/1921'),
-    inStock:"yes",
-    bookReviews: 15,
-    bookImageUrl: "app/assets/images/656.jpg",
-    hardcover:false
-  }, {
-    bookAuthor: "Tom Jones ha",
-    bookTitle: "War and Peace II",
-    bookPrice: 45.95,
-    bookDescription: "Book of historical fiction",
-    publishedOn : new Date('02/11/2001'),
-    bookReviews: 15,
-    bookImageUrl: "app/assets/images/656.jpg"
-  }] */
+    //The convintion is to put service related logic inside ngOninit life cycle hook
+    BooksListComponent.prototype.ngOnInit = function () {
+        this.getAllBooks();
+    };
     //functions
+    BooksListComponent.prototype.getAllBooks = function () {
+        var _this = this;
+        this._bookService.getBooks()
+            .subscribe(function (books) { return _this.books = books; }, function (error) { return _this.errorMessage = error; });
+    };
     BooksListComponent.prototype.toggleImage = function () {
         this.showImage = !this.showImage;
     };

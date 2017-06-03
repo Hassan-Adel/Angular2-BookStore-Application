@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IBook } from'../book';
 import { BookService } from'../book.service';
 
@@ -8,40 +8,30 @@ import { BookService } from'../book.service';
 	templateUrl: 'books-list.component.html'
 })
 
-export class BooksListComponent{
+export class BooksListComponent implements OnInit{
 
 	books:IBook[];
 	imageWidth: number = 100;
 	showImage: boolean = true;
 	booksInStock: number = 20;
 	favoriteMessage : string = "";
+    errorMessage : string;
 
-	constructor(private _bookService: BookService){
-		this.books = _bookService.getBooks();
-	}
+	constructor(private _bookService: BookService){}
+    //The convintion is to put service related logic inside ngOninit life cycle hook
+    ngOnInit(){
+        this.getAllBooks();
+    }
 
-	//interpuloation
-	/*
-  books: IBook[] = [{
-    bookAuthor: "Tom Jones",
-    bookTitle: "War and Peace 2",
-    bookPrice: 29.95,
-    bookDescription: "Book of historical fiction",
-    publishedOn : new Date('02/11/1921'),
-    inStock:"yes",
-    bookReviews: 15,
-    bookImageUrl: "app/assets/images/656.jpg",
-    hardcover:false
-  }, {
-    bookAuthor: "Tom Jones ha",
-    bookTitle: "War and Peace II",
-    bookPrice: 45.95,
-    bookDescription: "Book of historical fiction",
-    publishedOn : new Date('02/11/2001'),
-    bookReviews: 15,
-    bookImageUrl: "app/assets/images/656.jpg"
-  }] */
-	//functions
+    //functions
+  getAllBooks() {
+    this._bookService.getBooks()
+      .subscribe(
+        books => this.books = books,
+        error => this.errorMessage = <any>error
+      );
+  }
+
 	toggleImage():void{
 		this.showImage = !this.showImage;
 	}

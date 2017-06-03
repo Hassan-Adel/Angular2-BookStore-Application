@@ -7,9 +7,10 @@ import { FavoriteComponent }   from './favorites/favorite.component';
 import { HighlightDirective }   from './shared/highlight.directive';
 import { TruncatePipe }   from './shared/pipes/truncate.pipe';
 import { BookService }   from './books/book.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
+  imports:      [ BrowserModule, FormsModule, HttpModule ],
   providers:    [BookService ],
   declarations: [ AppComponent, BooksListComponent, FavoriteComponent, HighlightDirective, TruncatePipe ],
   bootstrap:    [ AppComponent ]
