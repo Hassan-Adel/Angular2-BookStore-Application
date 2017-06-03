@@ -20,13 +20,4 @@ export class FavoriteComponent   {
          this.notifyFavoriteClicked.emit(`the favorite ${this.favorite} was saved`);
          this.fave = !this.fave;
      }
-
-     isSelected(fave: boolean): boolean {
-         if(!fave || !this.fave){
-             return false;
-         }
-         else if(fave){
-             return true;
-         }
-     }
 }

@@ -20,14 +20,6 @@ var FavoriteComponent = (function () {
         this.notifyFavoriteClicked.emit("the favorite " + this.favorite + " was saved");
         this.fave = !this.fave;
     };
-    FavoriteComponent.prototype.isSelected = function (fave) {
-        if (!fave || !this.fave) {
-            return false;
-        }
-        else if (fave) {
-            return true;
-        }
-    };
     return FavoriteComponent;
 }());
 __decorate([
