@@ -1,4 +1,7 @@
 /* Custom */
+.favSelected{
+	color: red;
+}
 .redClass{
 	background-color: red;
 }

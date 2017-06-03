@@ -12,7 +12,7 @@ var BooksListComponent = (function () {
         this.imageWidth = 100;
         this.showImage = true;
         this.booksInStock = 20;
-        this.showMessage = "Test";
+        this.favoriteMessage = "";
         //interpuloation
         this.books = [{
                 bookAuthor: "Tom Jones",
@@ -25,7 +25,7 @@ var BooksListComponent = (function () {
                 bookImageUrl: "app/assets/images/656.jpg",
                 hardcover: false
             }, {
-                bookAuthor: "Tom Jones",
+                bookAuthor: "Tom Jones ha",
                 bookTitle: "War and Peace II",
                 bookPrice: 45.95,
                 bookDescription: "Book of historical fiction",
@@ -38,8 +38,8 @@ var BooksListComponent = (function () {
     BooksListComponent.prototype.toggleImage = function () {
         this.showImage = !this.showImage;
     };
-    BooksListComponent.prototype.onNotifyClicked = function (message) {
-        this.showMessage = message;
+    BooksListComponent.prototype.onFavoriteClicked = function (message) {
+        this.favoriteMessage = message;
     };
     return BooksListComponent;
 }());

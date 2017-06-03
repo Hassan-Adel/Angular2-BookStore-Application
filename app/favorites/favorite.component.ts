@@ -8,10 +8,25 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 
 export class FavoriteComponent   {
-    @Input()reviews : number;
-    @Output() notify : EventEmitter<string> = new EventEmitter<string>();
 
+    fave : boolean = false;
+
+    @Input() favorite: string;
+    @Input()reviews : number;
+    @Output() notifyFavoriteClicked : EventEmitter<string> = new EventEmitter<string>();
+
+//Must use backTickes "`" for string interpuloation to work (adding variables to string)
      onClick(): void{
-         this.notify.emit('Message from Child');
+         this.notifyFavoriteClicked.emit(`the favorite ${this.favorite} was saved`);
+         this.fave = !this.fave;
+     }
+
+     isSelected(fave: boolean): boolean {
+         if(!fave || !this.fave){
+             return false;
+         }
+         else if(fave){
+             return true;
+         }
      }
 }

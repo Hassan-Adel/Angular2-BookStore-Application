@@ -25,7 +25,7 @@ export class BooksListComponent{
 	imageWidth: number = 100;
 	showImage: boolean = true;
 	booksInStock: number = 20;
-	showMessage : string = "Test";
+	favoriteMessage : string = "";
 	//interpuloation
   books: IBook[] = [{
     bookAuthor: "Tom Jones",
@@ -38,7 +38,7 @@ export class BooksListComponent{
     bookImageUrl: "app/assets/images/656.jpg",
     hardcover:false
   }, {
-    bookAuthor: "Tom Jones",
+    bookAuthor: "Tom Jones ha",
     bookTitle: "War and Peace II",
     bookPrice: 45.95,
     bookDescription: "Book of historical fiction",
@@ -51,7 +51,7 @@ export class BooksListComponent{
 		this.showImage = !this.showImage;
 	}
 
-	onNotifyClicked(message: string): void{
-			this.showMessage = message;
+	onFavoriteClicked(message: string): void{
+			this.favoriteMessage = message;
 	}
 }
