@@ -11,6 +11,7 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var app_component_1 = require("./app.component");
 var books_list_component_1 = require("./books/books-list/books-list.component");
+var welcome_component_1 = require("./welcome/welcome.component");
 var favorite_component_1 = require("./favorites/favorite.component");
 var highlight_directive_1 = require("./shared/highlight.directive");
 var truncate_pipe_1 = require("./shared/pipes/truncate.pipe");
@@ -18,9 +19,10 @@ var book_service_1 = require("./books/book.service");
 var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var routes = [
+    { path: 'welcome', component: welcome_component_1.WelcomeComponent },
     { path: 'books', component: books_list_component_1.BooksListComponent },
-    { path: '', redirectTo: 'books', pathMatch: 'full' },
-    { path: '**', redirectTo: 'books', pathMatch: 'full' } // '**' (wild card) when a user navigates to route that isn't defined , ie: 404
+    { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+    { path: '**', redirectTo: 'welcome', pathMatch: 'full' } // '**' (wild card) when a user navigates to route that isn't defined , ie: 404
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -34,7 +36,7 @@ AppModule = __decorate([
             http_1.HttpModule,
             router_1.RouterModule.forRoot(routes)],
         providers: [book_service_1.BookService],
-        declarations: [app_component_1.AppComponent, books_list_component_1.BooksListComponent, favorite_component_1.FavoriteComponent, highlight_directive_1.HighlightDirective, truncate_pipe_1.TruncatePipe],
+        declarations: [app_component_1.AppComponent, books_list_component_1.BooksListComponent, favorite_component_1.FavoriteComponent, highlight_directive_1.HighlightDirective, truncate_pipe_1.TruncatePipe, welcome_component_1.WelcomeComponent],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);

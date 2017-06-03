@@ -5,8 +5,17 @@
 .redClass{
 	background-color: red;
 }
+.whiteClass{
+	color: white;
+}
 .yellowClass{
 	background-color: yellow;
+}
+.dimmed{
+    background: rgba(0, 0, 0, 0.5);
+}
+.bg{
+    background: url('https://static1.squarespace.com/static/56798bd0d8af1059085454ee/t/56bd019159827e0474677197/1455227288821/Books+%28FB+Cover%29.jpg?format=1500w') no-repeat center center;
 }
 /**********/
 a {
