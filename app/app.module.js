@@ -16,6 +16,7 @@ var highlight_directive_1 = require("./shared/highlight.directive");
 var truncate_pipe_1 = require("./shared/pipes/truncate.pipe");
 var book_service_1 = require("./books/book.service");
 var http_1 = require("@angular/http");
+var router_1 = require("@angular/router");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -23,7 +24,14 @@ var AppModule = (function () {
 }());
 AppModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule],
+        imports: [platform_browser_1.BrowserModule,
+            forms_1.FormsModule,
+            http_1.HttpModule,
+            router_1.RouterModule.forRoot([
+                { path: 'books', component: books_list_component_1.BooksListComponent },
+                { path: '', redirectTo: 'books', pathMatch: 'full' },
+                { path: '**', redirectTo: 'books', pathMatch: 'full' } // '**' (wild card) when a user navigates to route that isn't defined , ie: 404
+            ])],
         providers: [book_service_1.BookService],
         declarations: [app_component_1.AppComponent, books_list_component_1.BooksListComponent, favorite_component_1.FavoriteComponent, highlight_directive_1.HighlightDirective, truncate_pipe_1.TruncatePipe],
         bootstrap: [app_component_1.AppComponent]

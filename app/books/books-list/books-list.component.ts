@@ -4,7 +4,7 @@ import { BookService } from'../book.service';
 
 @Component({
 	moduleId: module.id,
-	selector:'bs-books-list',
+	//selector:'bs-books-list',
 	templateUrl: 'books-list.component.html'
 })
 

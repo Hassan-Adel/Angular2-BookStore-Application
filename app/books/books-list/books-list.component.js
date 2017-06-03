@@ -40,7 +40,7 @@ var BooksListComponent = (function () {
 BooksListComponent = __decorate([
     core_1.Component({
         moduleId: module.id,
-        selector: 'bs-books-list',
+        //selector:'bs-books-list',
         templateUrl: 'books-list.component.html'
     }),
     __metadata("design:paramtypes", [book_service_1.BookService])
