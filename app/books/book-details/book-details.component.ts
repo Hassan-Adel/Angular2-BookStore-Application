@@ -19,21 +19,17 @@ export class BookDetailsComponent implements OnInit, OnDestroy {
     constructor(private _route: ActivatedRoute, private _bookService: BookService){
         console.log(this._route.snapshot.params['id'])
     }
-
+    /*
     getTheBook(id: string) {
     this._bookService.getBook(id).subscribe(
         theBook => this.book = theBook,
         error => this.errorMessage = <any>error
       );
-    }
+    } */
+
     //watch for an observable comming throgh the rout
     ngOnInit(): void{
-        this.sub = this._route.params.subscribe(
-            params => {
-                let id = params['id'];
-                this.getTheBook(id);
-            }
-        );
+        this._bookService.getBook(this._route.snapshot.params['id']).subscribe((theBook: IBook) => this.book = theBook);
     }
     ngOnDestroy(){}
 

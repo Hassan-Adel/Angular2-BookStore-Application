@@ -19,17 +19,17 @@ var BookDetailsComponent = (function () {
         this.imageWidth = 230;
         console.log(this._route.snapshot.params['id']);
     }
-    BookDetailsComponent.prototype.getTheBook = function (id) {
-        var _this = this;
-        this._bookService.getBook(id).subscribe(function (theBook) { return _this.book = theBook; }, function (error) { return _this.errorMessage = error; });
-    };
+    /*
+    getTheBook(id: string) {
+    this._bookService.getBook(id).subscribe(
+        theBook => this.book = theBook,
+        error => this.errorMessage = <any>error
+      );
+    } */
     //watch for an observable comming throgh the rout
     BookDetailsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.sub = this._route.params.subscribe(function (params) {
-            var id = params['id'];
-            _this.getTheBook(id);
-        });
+        this._bookService.getBook(this._route.snapshot.params['id']).subscribe(function (theBook) { return _this.book = theBook; });
     };
     BookDetailsComponent.prototype.ngOnDestroy = function () { };
     return BookDetailsComponent;
